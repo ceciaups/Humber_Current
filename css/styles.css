@@ -1,0 +1,34 @@
+/* 1. GENERAL STYLES */
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+/*  */
+#penguin::before {
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: url("../images/IMG_2304\ 1.png");
+  background-size: cover;
+  transition: opacity 200ms;
+}
+#penguin {
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(#00000066, #000000CC), url("../images/IMG_2304\ 1.png");
+  background-size: cover;
+  z-index: -1;
+}
+
+#penguin:hover::before {
+  opacity: 0;
+}
