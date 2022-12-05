@@ -128,22 +128,23 @@ nav {
 }
 #search-input {
   padding: 0 calc(var(--size-s) * 3);
-  border: none;
+  border: 2px solid var(--black);
   background-color: inherit;
   color: var(--white);
   height: var(--header-height);
   width: 358px;
 }
 #search-input:focus {
-  outline: 2px solid var(--white);
+  outline: none;
+  border: 2px solid var(--white);
 }
 #search-input:focus ~ #search-clear {
-  visibility: visible;
+  display: initial;
   right: 0;
   padding: 20px;
 }
 #search-clear {
-  visibility: hidden;
+  display: none;
   right: 0;
   padding: 20px;
 }
