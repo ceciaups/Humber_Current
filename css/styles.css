@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+/********************************************************************
+ * TABLE OF CONTENTS
+ * ===================
+ * 1. GENERAL STYLES
+ * 2. HEADER STYLES
+ * 3. HOME STYLES
+ * 4. SEARCH RESULTS STYLES
+ * 5. SIGN IN STYLES
+ * 6. STUDENT PROFILE STYLES
+ * 7. ADMIN PAGE STYLES
+ * 8. MEDIA FOUNDATION STYLES
+ * ===================
+ ********************************************************************/
+
 /* 1. GENERAL STYLES */
 html {
   box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 *, *::before, *::after {
   box-sizing: inherit;
@@ -8,27 +25,145 @@ html {
   padding: 0;
   text-decoration: none;
 }
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+a:hover, .button:hover {
+  color: inherit;
+  text-decoration: none;
+}
+:root {
+  --header-height: 48px;
+  --white: #FFFFFF;
+  --gray-100: #C6C6C6;
+  --gray-200: #4C4C4C;
+  --gray-300: #393939;
+  --gray-500: #262626;
+  --black: #161616;
+  --size-l: 24px;
+  --size-m: 21px;
+  --size-s: 16px;
+  --size-xs: 14px;
+}
 
-/*  */
-#penguin::before {
-  content: '';
+/* 2. HEADER STYLES */
+header {
+  position: fixed;
   top: 0;
-  left: 0;
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  background: url("../images/IMG_2304\ 1.png");
-  background-size: cover;
-  transition: opacity 200ms;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--black);
+  color: var(--white);
+  font-size: var(--size-xs);
 }
-#penguin {
-  width: 420px;
-  height: 420px;
-  background: linear-gradient(#00000066, #000000CC), url("../images/IMG_2304\ 1.png");
-  background-size: cover;
-  z-index: -1;
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-left, .nav-right {
+  height: var(--header-height);
+  display: flex;
+  place-items: center;
+}
+.nav-left {
+  padding-left: var(--size-s);
+}
+.nav-item {
+  position: relative;
+  color: var(--gray-100);
+  display: inline-block;
+  padding: calc(var(--size-s) - 1px) var(--size-s);
+}
+.site-name {
+  color: var(--white);
+  text-transform: uppercase;
+  width: 115px;
+  padding: 3px 0;
+  margin: 0 var(--size-s) 0 0;
+  border-right: 1px solid var(--gray-300);
+}
+.nav-item:hover, .nav-logo:hover {
+  background-color: var(--gray-500);
+}
+.nav-item:hover .nav-dept, .nav-item:hover .nav-res, .nav-dept-item:hover .nav-program, .nav-logo:hover ul {
+  display: block;
+}
+.site-name:hover {
+  background-color: var(--black);
 }
 
-#penguin:hover::before {
-  opacity: 0;
+.nav-dept, .nav-program, .nav-res {
+  width: 200px;
+  background-color: var(--gray-500);
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.nav-dept-item, .nav-program-item, .nav-res-item, .nav-logo-item {
+  position: relative;
+  color: var(--gray-100);
+  display: block;
+  padding: calc(var(--size-s) - 1px) var(--size-s);
+}
+.nav-dept-item:hover, .nav-res-item:hover, .nav-logo-item:hover {
+  background-color: var(--gray-200);
+}
+
+.nav-program {
+  top: 0;
+  left: 100%;
+}
+
+.search-bar {
+  position: relative;
+  height: var(--header-height);
+  display: inline-block;
+}
+.search-bar img {
+  position: absolute;
+  padding: var(--size-s);
+}
+#search-input {
+  padding: 0 calc(var(--size-s) * 3);
+  border: none;
+  background-color: inherit;
+  color: var(--white);
+  height: var(--header-height);
+  width: 358px;
+}
+#search-input:focus {
+  outline: 2px solid var(--white);
+}
+#search-input:focus ~ #search-clear {
+  visibility: visible;
+  right: 0;
+  padding: 20px;
+}
+#search-clear {
+  visibility: hidden;
+  right: 0;
+  padding: 20px;
+}
+.search-bar::placeholder {
+  color: var(--white);
+}
+.nav-logo {
+  position: relative;
+  height: var(--header-height);
+  display: inline-block;
+  padding: 13.5px;
+}
+.nav-logo ul {
+  width: 130px;
+  background-color: var(--gray-500);
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+.nav-lang ul {
+  left: 0;
 }
