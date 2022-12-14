@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Raleway:wght@700&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Raleway:wght@700&family=Roboto:wght@300;400;500&display=swap');
 
 /********************************************************************
  * TABLE OF CONTENTS
@@ -44,8 +44,10 @@ a:hover, .button:hover {
   --gray-300: #4C4C4C;
   --gray-400: #393939;
   --gray-500: #262626;
+  --gray-600: #1E1E1E;
   --black: #161616;
   --footer-black: #121212;
+  --size-xl: 36px;
   --size-l: 24px;
   --size-m: 21px;
   --size-s: 16px;
@@ -181,8 +183,46 @@ nav {
 
 /* 3. HOME PAGE */
 #home-page {
-  height: 100vh;
+  padding: 324px 0 143px 0;
   position: relative;
+  background-color: var(--gray-600);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+#home-title {
+  font-size: 150px;
+  font-weight: 700;
+  background-image: url(../images/humber-color.png);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position: center;
+  color: transparent;
+  text-align: center;
+}
+#home-hero-text {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0.16px;
+  width: 66.5vw;
+  font-weight: 600;
+  color: var(--gray-100);
+  text-align: center;
+}
+#home-button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #D3D3D3;
+  background: linear-gradient(238.03deg, rgba(255, 255, 255, 0.2) -10.99%, rgba(255, 255, 255, 0.05) 129.18%),
+linear-gradient(60.42deg, rgba(255, 255, 255, 0.28) -9.02%, rgba(224, 224, 224, 0) 115.4%);
+  width: 247px;
+  height: 69px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 230px;
 }
 
 /* 4. MEDIA FOUNDATION STYLES */
@@ -564,6 +604,80 @@ nav {
 
 /* 6. FOOTER STYLES */
 #footer {
+  padding: 48px 70px;
   background-color: var(--footer-black);
-  height: 141px;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--size-s);
+  color: var(--gray-100);
+  display: flex;
+  flex-flow: column;
+  gap: 49px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 54px;
+}
+#footer-site-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: var(--size-xl);
+}
+#footer div {
+  display: flex;
+}
+.footer-nav {
+  display: flex;
+  gap: 40px;
+}
+.footer-program, .footer-res {
+  display: inline-block;
+  font-weight: 500;
+  width: 212px;
+}
+.footer-program ul, .footer-res ul {
+  margin-top: 30px
+}
+.footer-program-item, .footer-res-item {
+  display: block;
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+.newsletter {
+  padding-left: 60px;
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+#subscribe-input {
+  background-color: #ADADAD80;
+  color: var(--white);
+  height: var(--size-xl);
+  width: 328px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 1em;
+}
+#subscribe-input:focus {
+  outline: none;
+}
+#subscribe-submit {
+  color: var(--black);
+  height: var(--size-xl);
+  width: 212px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 5px;
+}
+.footer-social-media {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  padding-top: 59px;
+}
+.special-nav {
+  justify-content: space-between;
+}
+.special-nav-item {
+  display: flex;
+  gap: 20px;
 }
