@@ -3,18 +3,56 @@ $(window).on("load", function() {
   var page = path.split("/").pop();
   
   if (page === "home.html") {
-    document.getElementById("home-slideshow-left").addEventListener("click", slideLeft);
-    document.getElementById("home-slideshow-right").addEventListener("click", slideRight);
+    var left = document.getElementById("home-slideshow-left");
+    var right = document.getElementById("home-slideshow-right");
+    var slider = document.getElementById("slider");
+    const sliderInit = slider.getBoundingClientRect().left;
+    const sliderSize = 331 + 55;
+
+    left.addEventListener("click", slideLeft);
+    right.addEventListener("click", slideRight);
 
     function slideLeft() {
-      var slider = document.getElementById("slider");
-      if (slider.getBoundingClientRect().left < 406.5)
-        slider.style.left = (slider.getBoundingClientRect().left + 487) + "px";
+      // console.log(slider.getBoundingClientRect().left);
+      if (slider.getBoundingClientRect().left < (sliderInit + 2 * sliderSize)) {
+        left.style.pointerEvents = "none";
+        right.style.pointerEvents = "none";
+        slider.style.left = (slider.getBoundingClientRect().left + sliderSize) + "px";
+        for (var i = 1; i < slider.childNodes.length; i += 2) {
+          slider.childNodes[i].style.height = "175px";
+          slider.childNodes[i].style.width = "331px";
+          slider.childNodes[i].style.opacity = "50%";
+        }
+        changeSlideStyle(-2);
+      }
+      slider.addEventListener('transitionend', function() {
+        left.style.pointerEvents = "initial";
+        right.style.pointerEvents = "initial";
+      }, { once: true });
     }
     function slideRight() {
-      var slider = document.getElementById("slider");
-        if (slider.getBoundingClientRect().left > -1541.5)
-          slider.style.left = (slider.getBoundingClientRect().left - 487) + "px";
+      // console.log(slider.getBoundingClientRect().left);
+        if (slider.getBoundingClientRect().left > (sliderInit - 2 * sliderSize)) {
+          left.style.pointerEvents = "none";
+          right.style.pointerEvents = "none";
+          slider.style.left = (slider.getBoundingClientRect().left - sliderSize) + "px";
+          for (var i = 1; i < slider.childNodes.length; i += 2) {
+            slider.childNodes[i].style.height = "175px";
+            slider.childNodes[i].style.width = "331px";
+            slider.childNodes[i].style.opacity = "50%";
+          }
+          changeSlideStyle(2);
+        }
+        slider.addEventListener('transitionend', function() {
+          left.style.pointerEvents = "initial";
+          right.style.pointerEvents = "initial";
+        }, { once: true });
+    }
+    function changeSlideStyle(dir) {
+      var slideID = ((sliderInit - slider.getBoundingClientRect().left) / sliderSize + 3) * 2 - 1 + dir;
+      slider.childNodes[slideID].style.height = "229px";
+      slider.childNodes[slideID].style.width = "432px";
+      slider.childNodes[slideID].style.opacity = "100%";
     }
   }
 
@@ -59,9 +97,10 @@ $(window).on("load", function() {
 
     document.getElementById("active-tag-portfolio").addEventListener("click", pageFade);
     document.getElementById("active-tag-program").addEventListener("click", pageFade);
-
+    document.getElementById("media-button").addEventListener("click", pageFade);
 
     function pageFade() {
+      window.scrollTo(0, 0);
       var program = document.getElementById("program");
       var portfolio = document.getElementById("portfolio");
 
