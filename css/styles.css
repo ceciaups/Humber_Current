@@ -18,6 +18,7 @@ html {
   font-family: 'IBM Plex Sans', sans-serif;
   color: var(--white);
   background-color: var(--black);
+  overflow-x: hidden;
 }
 *, *::before, *::after {
   box-sizing: inherit;
@@ -80,7 +81,7 @@ a:hover, .button:hover {
 header {
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: var(--header-height);
   background-color: var(--black);
   color: var(--white);
@@ -634,7 +635,6 @@ nav {
   border-radius: 15px;
   font-size: var(--size-xl);
 }
-
 .light {
   position: absolute;
   filter: blur(200px);
