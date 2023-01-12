@@ -1,4 +1,6 @@
 # IXD 5105 Team 4
+Visit here: https://humbercurrent.ceciaups.com/
+
 - This is a re-creation of the Humber Current page for showcasing students' portfolios
 - http://humbercurrent-team4.epizy.com/index.html
 
